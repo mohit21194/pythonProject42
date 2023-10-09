@@ -1,0 +1,85 @@
+
+{% extends 'job/recruiter_navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+
+
+
+<marquee style="font-family:'Monotype Corsiva' ;font-size:25px; color: darkcolor; backgroung-color:black;font-weight:bold;margin-top:1%">
+    Add Job Details
+</marquee>
+<form class="container mt-5" onsubmit="return checkpass();" name="signup" method="post" enctype="multipart/form-data">{% csrf_token %}
+   <div class="form-row">
+       <div class="form-group col md-12">
+           <label>Job Title</label>
+           <input type="text" class="form-control" name="jobtitle" placeholder="Enter job title">
+       </div>
+   </div>
+
+
+
+       <div class="form-row">
+          <div class="form-group col md-6">
+           <label>Start Date</label>
+           <input type="date" class="form-control" name="startdate" >
+          </div>
+         <div class="form-group col md-6">
+           <label>End Date</label>
+           <input type="date" class="form-control" name="enddate" >
+         </div>
+       </div>
+
+
+
+       <div class="form-row">
+          <div class="form-group col md-6">
+             <label>Salary(Per Month)</label>
+             <input type="text" class="form-control" name="salary" >
+          </div>
+          <div class="form-group col md-6">
+             <label>Company Logo</label>
+             <input type="file" class="form-control" name="logo" id="image" >
+          </div>
+       </div>
+
+       <div class="form-row">
+         <div class="form-group col md-6">
+           <label>Experience(In Years)</label>
+           <input type="text" class="form-control" name="experience">
+         </div>
+           <div class="form-group col md-6">
+             <label>Company Location </label>
+             <input type="text" class="form-control" name="location">
+           </div>
+       </div>
+
+       <div class="form-row">
+              <div class="form-group col md-12">
+              <label>Skills</label>
+              <input type="text" class="form-control" name="skills">
+           </div>
+       </div>
+
+       <div class="form-row">
+              <div class="form-group col md-12">
+                 <label>Description</label>
+                 <textarea class="form-control" name="description"></textarea>
+              </div>
+       </div>
+    <input type="submit" value="submit" class="btn btn-primary my-3" style="width:200px">
+
+
+
+</form>
+<script>
+  {% if alert %}
+  alert("Job added successfully.")
+  window.location = "/job_list"
+  {% endif %}
+</script>
+
+
+{% endblock body %}
+

@@ -1,0 +1,52 @@
+{% extends 'job/user_navigation.html' %}
+{% load static %}
+{% block body %}
+<marquee style="font-family:'Monotype Corsiva' ;font-size:25px; color: darkcolor; backgroung-color:black;font-weight:bold;margin-top:1%">
+    Apply For Job
+</marquee>
+<hr>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-row">
+            <label class="font-weight-bold">Upload Resume</label>
+            <input type="file" class="form-control" name="resume">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-danger mt-3">
+
+
+
+    </form>
+
+
+{% if error == 'close' %}
+<script>
+    alert('Application line are close',last date is over);
+    window.location=('{% url 'user_latestjobs' %}')
+</script>
+{% endif %}
+
+{% if error == 'notopen' %}
+<script>
+    alert('Application line is not open');
+    window.location=('{% url 'user_latestjobs' %})
+
+</script>
+{% endif %}
+
+{% if error == 'done' %}
+ <script>
+     alert('job Application submitted successfully');
+     window.location=('{% url 'user_latestjobs' %}')
+ </script>
+ {% endif %}
+
+
+{% endblock body %}
+
+
+
+
+
+
+
+
